@@ -1,0 +1,362 @@
+/* 全局設置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 2;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 1570px;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.8;
+    max-width: 1920px;
+    margin: 0 auto;
+    height: 1600px;
+    
+    /* 背景圖片設置 */
+    background-image: url('bc.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.60); /* 調整透明度（0.3 是 30% 不透明） */
+    pointer-events: none; /* 讓覆蓋層不影響互動 */
+    z-index: -1;
+}
+
+.nav-title a {
+    color: inherit;          /* 使用父元素的顏色 */
+    text-decoration: none;   /* 移除底線 */
+}
+
+/* 導覽列 */
+header {
+    position: relative;
+    max-width: 100%;
+    width: 100%;
+    height: 150px;
+    margin: 0 auto;
+    background-color: #b0acac;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav {
+    width: 100%;
+    background-color: #ccc;
+    height: 150px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-left: 20px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    align-items: flex-end;
+}
+
+nav ul li {
+    position: relative;
+    margin: 0 5px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 8px 50px;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #ddd;
+    border-radius: 0px;
+}
+
+/* 下拉選單 */
+nav ul li > ul {
+    display: none;
+    position: absolute;
+    top: 42px;
+    left: 0;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    min-width: 120px;
+}
+
+nav ul li:hover > ul {
+    display: block;
+}
+
+nav ul li ul li {
+    background-color: white;
+    padding: 5px 10px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+nav ul li ul li a {
+    color: #333;
+    text-decoration: none;
+}
+
+nav ul li ul li:hover {
+    background-color: #ddd;
+}
+
+/* 導覽列標題和左右連結 */
+.nav-title {
+    position: absolute;
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    font-weight: bold;
+    font-family: serif;
+    text-align: center;
+}
+
+.nav-links {
+    position: absolute;
+    left: 20px;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-right {
+    position: absolute;
+    right: 20px;
+    top: 105px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-right .icon {
+    margin-right: 10px;
+}
+
+.nav-right .book-btn {
+    background-color: #d0d0d0;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* 間距 */
+.spacer {
+    height: 45px;
+    background-color: #FFFFFF;
+}
+
+
+/* Interior Design Section */
+.interior-section {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+    padding-top: 20px;
+}
+
+.interior-image {
+    width: 500px;
+    height: 250px;
+    background-color: #ccc;
+    display: flex;
+    align-items: flex-start; /* 將圖片頂部對齊 */
+    justify-content: center;
+    font-size: 16px;
+    color: #666;
+    border: 1px solid #999;
+}
+
+.interior-image img {
+    max-width: 100%;
+    height: auto; /* 自動調整高度以保持比例 */
+    margin-top: -20px; /* 使用負邊距微調圖片位置 */
+}
+
+/* Artist Section */
+.artist-section {
+    margin: 50px 0;
+}
+
+.artist-heading-container {
+    text-align: left;
+    margin-left: 3cm;
+    margin-bottom: 30px;
+    padding-top: 40px;
+}
+
+.artist-heading {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.artist-subheading {
+    font-size: 1.2em;
+    color: #666;
+}
+
+/* Shared Style for All Artist Cards */
+.artist-card,
+.main-artist-card {
+    width: 250px;
+    height: 380px;
+    background-color: #f7f7f7;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Main Artist Card (Center) */
+.main-artist-card {
+    margin: 0 auto 50px;
+}
+
+/* Artist Cards Section */
+.artist-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Left, Right, and Centered Artist Card Adjustments */
+.artist-left {
+    text-align: center;
+    margin-left: 8cm;
+    margin-bottom: 30px;
+    padding-top: 30px;
+}
+
+.artist-right {
+    text-align: center;
+    margin-right: 8cm;
+    margin-bottom: 30px;
+    padding-top: 30px;
+}
+
+/* Image Styling */
+.artist-image {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 40px
+}
+
+/* Image inside artist card */
+.artist-image img {
+    max-width: 150px;
+    max-height: 200px;
+    display: block;
+}
+
+/* Text Styling */
+.artist-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px; /* Move name down by around 1cm */
+    margin-bottom: 5px;
+    
+}
+
+.artist-role {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 10px; /* Move role down by around 1cm */
+    margin-bottom: 10px;
+}
+
+/* Button Styling */
+.profile-btn {
+    padding: 8px 16px;
+    font-size: 0.9em;
+    cursor: pointer;
+    background-color: #ddd;
+    border: none;
+    margin-top: 10px; /* Move button down by around 1cm */
+}
+
+
+
+/* Footer */
+footer {
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* Distributes space between left and right sections */
+    align-items: center; /* Aligns items vertically */
+}
+
+.footer-left {
+    text-align: left; /* Aligns text to the left */
+}
+
+.footer-left p {
+    margin-bottom: 5px;
+    font-size: 14px;
+    margin-right: 10cm;
+}
+
+/* Adjustments for social icons */
+.social-icons {
+    display: flex; /* Use flexbox for social icons */
+    align-items: center; /* Aligns icons vertically */
+    margin-top: 10px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+}
+
+/* Set a fixed height for icons */
+.social-icons img {
+    width: 36px; /* Set a width for the icons */
+    height: 36px; /* Set a fixed height for the icons */
+    display: block; /* Ensures there are no gaps */
+}
+
+/* Footer left section adjustment to ensure proper spacing */
+.footer-left {
+    display: flex;
+    flex-direction: column; /* Aligns the texts vertically */
+}
+
+/* Optional: Ensuring consistent vertical alignment */
+.footer-left p {
+    margin: 200; /* Removes default margin to avoid spacing issues */
+}
