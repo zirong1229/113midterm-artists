@@ -7,75 +7,49 @@
 
 body {
     font-family: Arial, sans-serif;
-    line-height: 2;
+    line-height: 1.8;
     max-width: 100%;
     margin: 0 auto;
     height: 1570px;
 }
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.8;
-    max-width: 1920px;
-    margin: 0 auto;
-    height: 1650px;
-
-}
-
-body::before {
-content: "";
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background-color: rgba(245, 236, 224, 0.6); /* 調整透明度（0.3 是 30% 不透明） */
-pointer-events: none; /* 讓覆蓋層不影響互動 */
-z-index: -1;
-}
-
 .nav-title a {
-color: inherit;          /* 使用父元素的顏色 */
-text-decoration: none;   /* 移除底線 */
-}
-    
- /* Interior Section Styles */
-.interior-section {
-    display: flex; /* 使用 flexbox 將圖片並排 */
-    justify-content: center; /* 圖片居中 */
-    gap: 20px; /* 圖片之間的間距 */
-    padding: 20px;
-}
+    color: inherit;          /* 使用父元素的顏色 */
+    text-decoration: none;/* 移除底線 */
+	font-family:serif ;
 
-.interior-section img {
-    width: 450px; /* 固定寬度 */
-    height: 350px; /* 固定高度 */
-    object-fit: cover; /* 確保圖片填滿容器且不變形 */
-    border-radius: 10px; /* 圖片圓角（可選） */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 圖片陰影（可選） */
 }
+/* 大於 800px 的媒體查詢 */
+@media screen and (min-width: 800px) {
+    label {
+        display: none;
+    }
+	
+	   	/* 隱藏 checkbox */
+    input[type="checkbox"] {
+    display: none;
+    }
+	.menu{
+		display: none;
+	}
 
+    nav ul {
+        display: flex;
+        justify-content: flex-start;
+    }
 
-/* button初始樣式 */
-button {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-    background: linear-gradient(45deg, #F5F5DC, #BEBEBE); /* 米色到灰色的漸層 */
-    color: #333; /* 字體使用深灰色，保持柔和 */
-    border: none;
-    border-radius: 5px; /* 圓角設計 */
-    transition: background-position 0.5s ease, box-shadow 0.3s ease; /* 平滑過渡效果 */
-    background-size: 200%; /* 動態漸層效果 */
-    background-position: left; /* 初始漸層位置 */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 增加輕微陰影 */
-}
+    nav ul li {
+        position: relative;
+    }
 
-/* 滑鼠懸停時漸層移動和陰影強化 */
-button:hover {
-    background-position: right; /* 漸層從左移到右 */
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* 加強陰影效果 */
-}
-/* 導覽列 */
+    nav ul li > ul {
+        display: none;
+        position: absolute;
+    }
+
+    nav ul li:hover > ul {
+        display: block;
+    }
+	/* 導覽列 */
 header {
     position: relative;
     max-width: 100%;
@@ -172,7 +146,6 @@ nav ul li ul li:hover {
     background-color: #ddd;
 }
 
-/* 導覽列標題和左右連結 */
 .nav-title {
     position: absolute;
     top: 32px;
@@ -184,36 +157,117 @@ nav ul li ul li:hover {
     text-align: center;
 }
 
-.nav-links {
-    position: absolute;
-    left: 20px;
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
 }
 
-.nav-links li {
-    margin: 0 15px;
+
+/* 小於 800px 的媒體查詢 */
+@media screen and (max-width: 800px) {
+    label {
+        display: block;
+    }
+	
+   	/* 隱藏 checkbox */
+    input[type="checkbox"] {
+    display: none;
+    }
+	.dropdown-menu{
+		display: none;
+	}
+
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a {
+        padding: 10px 20px;
+        text-align: left;
+    }
+	
+	nav {
+  background: #ccc;
+  box-shadow: 0px 1px 3px #00000088;
+}
+nav::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+nav h1 {
+  float: left;
+  padding-left: 50px;
+  line-height: 50px;
 }
 
-.nav-right {
-    position: absolute;
-    right: 20px;
-    top: 105px;
-    display: flex;
-    align-items: center;
+/* 隱藏 checkbox */
+input {
+  display: none;
 }
 
-.nav-right .icon {
-    margin-right: 10px;
+/* 漢堡按鈕 */
+label {
+  float: right;
+  padding-right: 50px;
+  line-height: 50px;
+  cursor: pointer;
+}
+label img {
+  width: 30px;
+  vertical-align: middle;
 }
 
-.nav-right .book-btn {
-    background-color: #d0d0d0;
-    padding: 8px 16px;
-    text-decoration: none;
-    color: #333;
+/* menu*/
+.menu {
+  clear: both;
+  background: #fff;
+}
+.menu li {
+  text-align: center;
+  border-bottom: 1px solid #efefef;
+}
+.menu li a {
+  display: block;
+  line-height: 50px;
+  font-size: 18px;
+  color: #5d5d5d;
+  text-decoration: none;/* 移除底線 */
+}
+.menu li a:hover {
+  background: #5d5d5d;
+  color: #fff;
+}
+
+/* 下拉選單效果 */
+.menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.2s;
+  /* 動畫秒數 */
+}
+
+input:checked ~ .menu {
+  max-height: 900px;
+}
+
+/* mediaquery */
+@media screen and (min-width: 800px) {
+  label {
+    display: none;
+  }
+
+  .menu {
+    float: right;
+    clear: none;
+    max-height: 50px;
+    background: #eee;
+  }
+  .menu li {
+    display: inline-block;
+  }
+  .menu li a {
+    padding: 0 15px;
+  }
+}
+	
 }
 
 /* 間距 */
