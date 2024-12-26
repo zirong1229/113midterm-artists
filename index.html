@@ -2,14 +2,29 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Artists</title>
+<title>Home</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
     <header>
 <nav>
+	<label for="switch"><img src="https://static.thenounproject.com/png/547171-200.png"></label>
+  <input type="checkbox" id="switch">
+	<h1 class="nav-title"><a href="https://zirong1229.github.io/113midterm/">Le Rêve Salon</a></h1>
+  <ul class="menu">
+    <li><a href="https://zirong1229.github.io/113midterm/">Home</a></li>
+    <li><a href="https://zirong1229.github.io/113midterm-artists/">Artists</a></li>
+    <li><a href="https://zirong1229.github.io/113midterm-price/">Price</a></li>
+    <li><a href="##">Hair Washing</a></li>
+	<li><a href="##">Cut + Styling</a></li>
+	<li><a href="##">Color</a></li>
+	<li><a href="##">Hair Donation</a></li>
+	<li><a href="https://zirong1229.github.io/113midterm-contact/">Contact</a></li>
+	<li><a href="https://zirong1229.github.io/113midterm-book/">Book</a></li>
+  </ul>
     <ul class="dropdown-menu">
+		<li><a href="https://zirong1229.github.io/113midterm/">Home</a></li>
         <li><a href="#">About</a>
             <ul>
                 <li><a href=" https://zirong1229.github.io/113midterm-artists/">Artists</a></li>
@@ -25,12 +40,9 @@
             </ul>
         </li>
         <li><a href="https://zirong1229.github.io/113midterm-contact/">Contact</a></li>
+		<li><a href="https://zirong1229.github.io/113midterm-book/">Book</a></li>
     </ul>
-     <h1 class="nav-title"><a href="https://zirong1229.github.io/113midterm/">Le Rêve Salon</a></h1>
-    <div class="nav-right">
-        <span class="icon">🛒</span>
-        <a href="https://zirong1229.github.io/113midterm-book/" class="book-btn">Book an Appointment</a>
-    </div>
+
 </nav>
 
     </header>
@@ -39,15 +51,23 @@
 
     <!-- Main Content -->
     <main>
+
         <!-- Interior Design Section -->
         <section class="interior-section">
-           <div class="interior-image">
+            <div class="interior-container">
                 <img src="img/Ginger Bay Salon and Spa.jpg" alt="Ginger Bay Salon and Spa" />
-           </div>
-             <div class="interior-image">
-                <img src="img/styling station.jpg" alt="Salon Styling Station" />
+                <div class="description">
+                    <p>This area of the salon has a modern and luxurious design. It features a chandelier-style lighting fixture, comfortable shampoo chairs, and a clean, organized layout.</p>
+                </div>
             </div>
-       </section>
+            <div class="interior-container">
+                <img src="img/styling station.jpg" alt="Salon Styling Station" />
+                <div class="description">
+                    <p>This section of the salon blends rustic charm with contemporary elegance. The exposed brick walls create a warm, industrial feel, while the sleek styling stations and mirrors add a modern touch.</p>
+                </div>
+            </div>
+        </section>
+
 
         <!-- Artist Section -->
 <section class="artist-section">
@@ -60,6 +80,9 @@
     <div class="main-artist-card">
         <div class="artist-image">
             <img src="img/Zara.jpg" alt="Zara" />
+            <div class="artist-description">
+                <p>Zara blends cutting-edge skills with a passion for teaching, guiding you to bold, confident new looks. Click to explore her profile!</p>
+            </div>
         </div>
         <h4 class="artist-name">Zara</h4>
         <p class="artist-role">CUT & COLOR EDUCATOR</p>
@@ -68,25 +91,33 @@
 
     <!-- Other Artists Cards -->
     <div class="artist-cards">
-        <div class="artist-card artist-left">
-            <div class="artist-image">
-                <img src="img/Luca.jpg" alt="Luca" />
+        <div class="artist-cards">
+            <div class="artist-card artist-left">
+                <div class="artist-image">
+                    <img src="img/Luca.jpg" alt="Luca" />
+                    <div class="artist-description">
+                        <p>Luca’s creativity and precision bring out your unique style in every cut and color. Click to see profile!</p>
+                    </div>
+                </div>
+                <h4 class="artist-name">Luca</h4>
+                <p class="artist-role">CUT & COLOR</p>
+                <button class="profile-btn">SEE PROFILE</button>
             </div>
-            <h4 class="artist-name">Luca</h4>
-            <p class="artist-role">CUT & COLOR</p>
-            <button class="profile-btn">SEE PROFILE</button>
-        </div>
-        <div class="artist-card artist-right">
-            <div class="artist-image">
-                <img src="img/Freya.jpg" alt="Freya" />
+            <div class="artist-card artist-right">
+                <div class="artist-image">
+                    <img src="img/Freya.jpg" alt="Freya" />
+                    <div class="artist-description">
+                        <p>"Freya’s artistry and expertise craft timeless looks that celebrate your natural beauty. Click to see profile!"</p>
+                    </div>
+                </div>
+                <h4 class="artist-name">Freya</h4>
+                <p class="artist-role">CUT & COLOR</p>
+                <button class="profile-btn">SEE PROFILE</button>
             </div>
-            <h4 class="artist-name">Freya</h4>
-            <p class="artist-role">CUT & COLOR</p>
-            <button class="profile-btn">SEE PROFILE</button>
-        </div>
     </div>
 </section>
-
+<script src="artist.js"></script>
+</body>
 
 <!-- Footer -->
 <footer>
