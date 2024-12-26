@@ -17,33 +17,64 @@ body {
     line-height: 1.8;
     max-width: 1920px;
     margin: 0 auto;
-    height: 1600px;
-    
-    /* 背景圖片設置 */
-    background-image: url('bc.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    position: relative;
+    height: 1650px;
+
 }
 
 body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(255,255,255,0.60); /* 調整透明度（0.3 是 30% 不透明） */
-    pointer-events: none; /* 讓覆蓋層不影響互動 */
-    z-index: -1;
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: rgba(245, 236, 224, 0.6); /* 調整透明度（0.3 是 30% 不透明） */
+pointer-events: none; /* 讓覆蓋層不影響互動 */
+z-index: -1;
 }
 
 .nav-title a {
-    color: inherit;          /* 使用父元素的顏色 */
-    text-decoration: none;   /* 移除底線 */
+color: inherit;          /* 使用父元素的顏色 */
+text-decoration: none;   /* 移除底線 */
+}
+    
+ /* Interior Section Styles */
+.interior-section {
+    display: flex; /* 使用 flexbox 將圖片並排 */
+    justify-content: center; /* 圖片居中 */
+    gap: 20px; /* 圖片之間的間距 */
+    padding: 20px;
 }
 
+.interior-section img {
+    width: 450px; /* 固定寬度 */
+    height: 350px; /* 固定高度 */
+    object-fit: cover; /* 確保圖片填滿容器且不變形 */
+    border-radius: 10px; /* 圖片圓角（可選） */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 圖片陰影（可選） */
+}
+
+
+/* button初始樣式 */
+button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    background: linear-gradient(45deg, #F5F5DC, #BEBEBE); /* 米色到灰色的漸層 */
+    color: #333; /* 字體使用深灰色，保持柔和 */
+    border: none;
+    border-radius: 5px; /* 圓角設計 */
+    transition: background-position 0.5s ease, box-shadow 0.3s ease; /* 平滑過渡效果 */
+    background-size: 200%; /* 動態漸層效果 */
+    background-position: left; /* 初始漸層位置 */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 增加輕微陰影 */
+}
+
+/* 滑鼠懸停時漸層移動和陰影強化 */
+button:hover {
+    background-position: right; /* 漸層從左移到右 */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* 加強陰影效果 */
+}
 /* 導覽列 */
 header {
     position: relative;
@@ -51,7 +82,7 @@ header {
     width: 100%;
     height: 150px;
     margin: 0 auto;
-    background-color: #b0acac;
+    background-color: #DABEA7;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,23 +118,38 @@ nav ul li a {
     font-weight: bold;
     padding: 8px 50px;
     display: block;
+    position: relative;
+    transition: color 0.3s ease; /* 加入過渡效果 */
 }
 
-nav ul li a:hover {
-    background-color: #ddd;
-    border-radius: 0px;
+/* Hover 畫線動畫 */
+nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #666; /* 灰色畫線 */
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease; /* 畫線動畫效果 */
 }
 
-/* 下拉選單 */
+nav ul li a:hover::after {
+    width: 80%; /* 畫線展開至 80% */
+}
+
+/* 子選單 */
 nav ul li > ul {
     display: none;
     position: absolute;
-    top: 42px;
+    top: 47px;
     left: 0;
     background-color: white;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
     z-index: 1;
-    min-width: 120px;
+    min-width: 100px;
 }
 
 nav ul li:hover > ul {
@@ -172,7 +218,7 @@ nav ul li ul li:hover {
 
 /* 間距 */
 .spacer {
-    height: 45px;
+    height: 0px;
     background-color: #FFFFFF;
 }
 
@@ -185,17 +231,38 @@ nav ul li ul li:hover {
     padding-top: 20px;
 }
 
-.interior-image {
-    width: 500px;
-    height: 250px;
-    background-color: #ccc;
+/* Interior Section */
+.interior-section {
     display: flex;
-    align-items: flex-start; /* 將圖片頂部對齊 */
-    justify-content: center;
+    flex-wrap: wrap; /* 使容器在小螢幕上換行 */
+    gap: 20px; /* 在兩個容器之間加間距 */
+}
+
+/* Individual container for each image and description */
+.interior-container {
+    width: 100%;
+    width: 450px; /* 固定寬度 */
+    height: 350px; /* 固定高度 */
+    display: flex;
+    flex-direction: column; /* 使圖片和文字垂直排列 */
+    align-items: center; /* 讓圖片和文字水平居中對齊 */
+    justify-content: flex-start;
+    text-align: left; /* 讓文字居中對齊 */
+}
+
+.interior-container img {
+    width: 100%; /* 確保圖片佔滿容器的寬度 */
+    width: 450px; /* 固定寬度 */
+    height: 350px; /* 固定高度 */
+}
+
+.description {
+    width: 100%; /* 使描述區域寬度與圖片一致 */
+    padding: 10px 0; /* 增加上下邊距 */
     font-size: 16px;
     color: #666;
-    border: 1px solid #999;
 }
+
 
 .interior-image img {
     max-width: 100%;
@@ -203,9 +270,33 @@ nav ul li ul li:hover {
     margin-top: -20px; /* 使用負邊距微調圖片位置 */
 }
 
+/* 定義動畫 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 初始隱藏 */
+.animated {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* 加入 visible 類別時觸發動畫 */
+.animated.visible {
+    animation: fadeInUp 0.5s forwards;
+}
+
 /* Artist Section */
 .artist-section {
-    margin: 50px 0;
+    margin: 60px 0;
 }
 
 .artist-heading-container {
@@ -239,6 +330,9 @@ nav ul li ul li:hover {
 /* Main Artist Card (Center) */
 .main-artist-card {
     margin: 0 auto 50px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
 }
 
 /* Artist Cards Section */
@@ -249,18 +343,41 @@ nav ul li ul li:hover {
 }
 
 /* Left, Right, and Centered Artist Card Adjustments */
-.artist-left {
+
+/* Artist Cards Section */
+.artist-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 100px; /* 設定左右卡片間的間隙 */
+    align-items: center; /* 垂直置中 */
+    margin: 0 auto; /* 置中整個區塊 */
+}
+
+/* Left and Right Artist Card */
+.artist-left, .artist-right {
     text-align: center;
-    margin-left: 8cm;
     margin-bottom: 30px;
     padding-top: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+    flex: 1; /* 讓兩個卡片佔據相等的空間 */
+}
+
+/* Optional: If you need to make them smaller */
+.artist-left {
+    margin-left: auto; /* 推動到左邊 */
 }
 
 .artist-right {
-    text-align: center;
-    margin-right: 8cm;
-    margin-bottom: 30px;
-    padding-top: 30px;
+    margin-right: auto; /* 推動到右邊 */
+}
+
+
+/* 當元素進入視窗時顯示動畫 */
+.artist-left.visible, .artist-right.visible, .main-artist-card.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Image Styling */
@@ -272,14 +389,44 @@ nav ul li ul li:hover {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding-top: 40px
+    position: relative; /* 使文字能夠定位於圖片上層 */
+    padding-top: 40px;
 }
 
 /* Image inside artist card */
 .artist-image img {
-    max-width: 150px;
-    max-height: 200px;
+    max-width: 220px;
+    max-height: 240px;
     display: block;
+}
+
+/* 藏在圖片背後的描述文字 */
+.artist-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* 半透明背景 */
+    color: white;
+    opacity: 0; /* 初始隱藏 */
+    transform: translateY(20px);
+    padding: 20px;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* 平滑過渡 */
+    font-size: 0.9em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 220px;
+    max-height: 240px;
+}
+
+/* 當圖片被懸停時顯示文字 */
+.artist-image:hover .artist-description {
+    opacity: 1; /* 顯示文字 */
+    transform: translateY(0); /* 恢復位置 */
 }
 
 /* Text Styling */
@@ -303,9 +450,20 @@ nav ul li ul li:hover {
     padding: 8px 16px;
     font-size: 0.9em;
     cursor: pointer;
-    background-color: #ddd;
+    background: linear-gradient(45deg, #F5F5DC, #BEBEBE); /* 米色到灰色的漸層 */
+    color: #333; /* 字體使用深灰色，保持柔和 */
     border: none;
-    margin-top: 10px; /* Move button down by around 1cm */
+    border-radius: 5px; /* 圓角設計 */
+    transition: background-position 0.5s ease, box-shadow 0.3s ease; /* 平滑過渡效果 */
+    background-size: 200%; /* 動態漸層效果 */
+    background-position: left; /* 初始漸層位置 */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 增加輕微陰影 */
+}
+
+/* 滑鼠懸停時漸層移動和陰影強化 */
+.profile-btn:hover {
+    background-position: right; /* 漸層從左移到右 */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* 加強陰影效果 */
 }
 
 
