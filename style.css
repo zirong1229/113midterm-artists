@@ -7,11 +7,32 @@
 
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.8;
+    line-height: 2;
     max-width: 100%;
     margin: 0 auto;
     height: 1570px;
 }
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.8;
+    max-width: 1920px;
+    margin: 0 auto;
+    height: 1650px;
+
+}
+
+body::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: rgba(245, 236, 224, 0.6); /* 調整透明度（0.3 是 30% 不透明） */
+pointer-events: none; /* 讓覆蓋層不影響互動 */
+z-index: -1;
+}
+
 .nav-title a {
     color: inherit;          /* 使用父元素的顏色 */
     text-decoration: none;/* 移除底線 */
